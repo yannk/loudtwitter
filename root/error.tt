@@ -1,0 +1,7 @@
+[% WRAPPER layouts/full.tt title="Unexpected error" %]
+<h1><span style="font-size:155%">[% |loc %]Not Found[% END %]</span></h1>
+<p>
+We're sorry, something really bad happened :-| We really have not much more
+to say...
+</p>
+[% END %]

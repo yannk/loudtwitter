@@ -1,0 +1,15 @@
+[% WRAPPER layouts/full.tt title="blog address to post the tweets" %]
+<h1>[% | loc %]What's your blog address?[% END %]</h1>
+
+[% PROCESS form/macros.tt %]
+
+[% WRAPPER form/wrapper.tt debug=1 %]
+
+<p>
+[% |loc %]Please, fill below the blog address you want your tweets to appear on[% END %]
+</p>
+[% input_text( 'blog_uri', undef, 60 ) %]
+
+[% END %]
+
+[% END %]

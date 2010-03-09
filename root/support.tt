@@ -1,0 +1,63 @@
+[% WRAPPER layouts/full.tt title="Get Help" menu="support" %]
+<h1>[% |loc %]Support[% END %]</h1>
+
+<h2>Stopping/Suspending posting</h2>
+<p>
+You can stop the tweet shipment anytime.
+</p>
+[% IF c.user_exists %]
+    [% IF c.user.is_fully_registered %]
+<p>
+Go to the <a href="/">homepapge</a>, scroll down until you are given the two choices of suspending or deleting your account.
+</p>
+    [% ELSE %]
+<p>You are currently authenticated, but your account is not fully registered. So if you are receiving tweets on your blog, then you must have a <strong>second</strong> account which is fully registered. Please, find what this account was and proceed with it.
+</p>
+    [% END %]
+[% ELSE %]
+<p>
+You need to <a href="/signin">signin</a> first. (There are two signin ways, openid or email/password, see following section for password assistance). On successful authentication, you should be brought to a page starting with "Welcome back...".
+<br />
+Scroll down this page, until you read "Gimme a break". Right there, you have two choices: Delete your account or just suspend it.
+</p>
+
+[% END %]
+</p>
+
+<h2>Issues signin in</h2>
+<p>Please read instructions on this <a href="/password">page</a>.
+</p>
+
+<h2>Title formatting</h2>
+<p>Please read instructions on this <a href="http://blog.loudtwitter.com/2009/09/advanced-title-formats.html">blog post</a>.
+</p>
+
+<h2>Other issues</h2>
+<p>Feel free to contact us (well, me), I'll try to help you out with your issue. There is a page with contact information <a href="/feedback">here</a>.
+</p>
+
+<h2>Donations</h2>
+<p>Providing Loudtwitter service and support to you isn't free... Support
+Loudtwitter back by donating a free amount.
+</br >
+
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" id="paypal">
+<input type="hidden" name="cmd" value="_xclick">
+<input type="hidden" name="business" value="yann.kerherve@gmail.com">
+<input type="hidden" name="item_name" value="loudtwitter">
+<input type="hidden" name="buyer_credit_promo_code" value="">
+<input type="hidden" name="buyer_credit_product_category" value="">
+<input type="hidden" name="buyer_credit_shipping_method" value="">
+<input type="hidden" name="buyer_credit_user_address_change" value="">
+<input type="hidden" name="no_shipping" value="1">
+<input type="hidden" name="return" value="http://www.loudtwitter.com/donate/thanks">
+<input type="hidden" name="cn" value="Thanks!">
+<input type="hidden" name="currency_code" value="USD">
+<input type="hidden" name="tax" value="0">
+<input type="hidden" name="lc" value="US">
+<input type="hidden" name="bn" value="PP-DonationsBF">
+<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+</form>
+<p>
+
+[% END %]

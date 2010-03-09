@@ -1,0 +1,23 @@
+<div id="sidebar">
+  <h1>Sidebar Menu</h1>
+  <div class="left-box">
+      <ul class="sidemenu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#TemplateInfo">Template Info</a></li>
+          <li><a href="#SampleTags">Sample Tags</a></li>
+          <li><a href="http://www.styleshout.com/">More Free Templates</a></li>
+          <li><a href="http://www.4templates.com/?aff=ealigam">Premium Templates</a></li>
+      </ul>
+  </div>
+
+  <h1>Site Partners</h1>
+  <div class="left-box">
+      <ul class="sidemenu">
+      <li><a href="http://partners.ipower.com/z/57/CD5822/">IPowerweb</a></li>
+          <li><a href="http://www.4templates.com/?aff=ealigam">4templates</a></li>
+          <li><a href="http://www.fotolia.com/partner/114283">Fotolia.com</a></li>
+          <li><a href="http://www.bigstockphoto.com/?refid=grKPpdNw6k">BigStockPhoto.com</a></li>
+          <li><a href="http://www.text-link-ads.com/?ref=40025">Text Link Ads</a></li>
+      </ul>
+   </div>
+ </div>

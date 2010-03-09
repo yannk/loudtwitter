@@ -1,0 +1,5 @@
+[% WRAPPER layouts/full.tt title="Password retrieval for email" %]
+
+[% INCLUDE form/email_account.tt %]
+
+[% END %]

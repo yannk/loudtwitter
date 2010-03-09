@@ -1,0 +1,15 @@
+[% WRAPPER layouts/full.tt title="Bugs, Feedback, Ideas, Typos ..." %]
+<h1>[% |loc %]We value your feedback[% END %]</h1>
+<p><em style="font-size:7pt">well, when we have time!</em><br /> Sorry about belated replies, I sometimes don't have the time to check on my inbox for several days... I do that on my free time. I appreciate your patience! </p>
+<p>Don't hesitate to <a href="http://www.loudtwitter.com/donate">donate</a>, it certainly helps!</p>
+<p>
+[% |loc %]
+Please send an email at loudtwitter@gmail.com
+[% END %]
+<br />
+[% |loc %]
+You can also post a comment on the <a href="http://blog.loudtwitter.com">blog</a>
+[% END %]
+
+</p>
+[% END %]

@@ -1,0 +1,10 @@
+[% WRAPPER layouts/full.tt title="Atom details" %]
+<h1>[% | loc %]Atom API configuration[% END %]</h1>
+
+[% IF c.user.post_using_guest %]
+ <strong>warning:</strong> You currently have a TypePad guest account configured. If you submit this form, it will be disabled. <a href="/">return to home to cancel</a>
+[% END %]
+[% INCLUDE form/atom.tt %]
+[% IF form.validated %]Ok, Updated![% END %]
+
+[% END %]

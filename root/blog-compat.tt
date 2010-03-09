@@ -1,0 +1,48 @@
+[% WRAPPER layouts/full.tt title="support for major blogging softwares" menu="blog-compat" %]
+<h1>[% |loc %]Blog compatibility[% END %]</span></h1>
+<h2>TypePad</h2>
+<p>
+The recommended way of posting your tweets on your TypePad blog if you have
+a PRO account is to invite LoudTwitter as a guest author.<br />
+<br />
+Otherwise LoudTwitter can use your credentials to post using the Atom API,
+or using the secret moblog address of your TypePad account.
+</p>
+<h2>Vox</h2>
+<p>
+Vox can generate a specific secret email for LoudTwitter exclusive usage.
+Vox also gives you the ability to configure this email to automatically
+tag the post or apply custom privacy settings.
+</p>
+<p>You can also login using your Vox blog address in the openid login field. </p>
+<h2>Movable Type</h2>
+<p>Movable Type is very flexible, it should work using any posting method</p>
+<h2>LiveJournal</h2>
+<p>LiveJournal has been tested with Atom credentials. But if it doesn't work, we suggest using the post by email feature of your account.</p> 
+<p>Here are <a href="http://mouser.livejournal.com/379686.html">good instructions</a> on how to setup LT with LJ, including advanced features like tagging, using email posting</p>
+<p>You can also login using your LJ blog address in the openid login field.</p>
+<h2>Wordpress.com</h2>
+<p>
+Trusting WP 
+<a href="http://faq.wordpress.com/2006/05/17/can-i-blog-by-email-moblog/">faq1</a> and 
+<a href="http://faq.wordpress.com/2006/06/01/can-i-post-from-outside-wordpresscom/">faq2</a>,
+There is no ATOM implementation in WP. Luckily a XML-RPC interface has recently been 
+added to LoudTwitter.
+</p>
+<h2>Self Hosted Wordpress</h2>
+<p>Thought it hasn't been tested it should work using ATOM API, since it appears
+that wordpress supports it</p>
+<h2>Blogger (aka blogspot, aka google)</h2>
+<p>
+It should work with email posting (you can create a special address just for twitter). Atom posting is not supported.
+</p>
+
+<h2>tumblr</h2>
+<p>
+Email posting has been successfuly tested with tumblr.
+</p>
+
+<h2>...more</h2>
+<p>let us know!</p>
+
+[% END %]

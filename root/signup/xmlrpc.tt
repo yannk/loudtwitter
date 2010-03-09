@@ -1,0 +1,23 @@
+[% WRAPPER layouts/full.tt title="XMLRPC Endpoint Setup" %]
+<h1>[% | loc %]Setup of XMLRPC posting[% END %]</h1>
+[% IF c.session.register.blog_type == 'wordpress' %]
+<p>
+LoudTwitter really prefers Atom over the old-fashioned XML-RPC,
+to post on your blog. But since you use wordpress there is no real other 
+choice...
+</p>
+[% ELSE %]
+<p>
+Please, specify below the xmlsettings that LoudTwitter will use
+to post on your blog. Although, there are alternative methods (recommanded) to 
+post on your blog:
+<ul>
+<li><a href="[% c.uri_for('atom') %]">Atom posting</a></li>
+<li><a href="[% c.uri_for('email') %]">post-by-email</a></li>
+<li>If you have a TypePad PRO account: <a href="[% c.uri_for('wants-guest') %]">invite LoudTwitter as a guest</a> on your blog.</li>
+</p>
+[% END %]
+
+[% INCLUDE form/xmlrpc.tt %]
+
+[% END %]

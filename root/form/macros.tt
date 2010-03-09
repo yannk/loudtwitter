@@ -1,0 +1,48 @@
+[% MACRO input_text( field_name, field_id, field_size ) BLOCK %]
+<input type="text" name="[% field_name %]" value="[% form.field(field_name).value | html %]" 
+[% IF form.field(field_name).has_error %] class="error" [% END %]
+[% IF field_id %] id="[% field_id %]" [% END %]
+[% IF field_size %] size="[% field_size %]" [% END %]
+/>
+<br />
+<em class="error">[% form.field(field_name).errors %]</em>
+<br />
+[% END %]
+
+[% MACRO input_password( field_name ) BLOCK %]
+<input type="password" name="[% field_name %]"
+[% IF form.field(field_name).has_error %] class="error" [% END %]
+/>
+[% form.field(field_name).errors %]
+[% END %]
+
+[% MACRO input_select_hour( field_name ) BLOCK %]
+    [% input_select_range(field_name, 23) %]
+[% END %]
+[% MACRO input_select_minute( field_name ) BLOCK %]
+    [% input_select_range(field_name, 59) %]
+[% END %]
+
+[% MACRO input_select_range( field_name, max ) BLOCK %]
+<select name="[% field_name %]"
+[% IF form.field(field_name).has_error %] class="error" [% END %]
+>
+    [% FOR h = [ 0 .. max ] %]
+    [% USE String(h) %]
+    [% h2 = String.format("%.2d") %]
+    <option value="[% h %]"
+        [% IF h2 == form.field(field_name).value %]selected="selected"[% END %]
+    >[% h2 %]</option>
+    [% END %]
+</select>
+<span style="color: red">[% form.field(field_name).errors %]</span>
+[% END %]
+
+[% MACRO input_checkbox( field_label, field_name ) BLOCK %]
+<label for="[% field_name %]" class="checkbox">
+<input type="checkbox" name="[% field_name %]" value="1" 
+[% IF form.field(field_name).has_error %] class="error" [% END %] id="[% field_name %]"
+[% IF form.field(field_name).value %] checked="checked"[% END %] />
+[% field_label %]</label>
+<em class="error">[% form.field(field_name).errors %]</em>
+[% END %]

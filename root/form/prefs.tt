@@ -1,0 +1,109 @@
+[% PROCESS form/macros.tt %]
+
+[% WRAPPER form/wrapper.tt debug=1 %]
+
+<label for="user-name">your name:</label>
+this is not required, though nice if we could call you by your name!
+
+<br />
+[% input_text( 'name', 'user-name' ) %]
+
+<label for="post-time">post time:</label>
+I want my tweets to be posted every day at:
+[% input_select_hour( 'post_hour', 'post-time' ) %]:[% input_select_minute( 'post_minute' ) %]
+<br />
+
+<label for="timezone">timezone</label>
+<select id="timezone" name="timezone">
+[% FOR timezone = all_timezones %]
+    <option value="[% timezone | html %]"
+    [% IF form.field('timezone').value == timezone %]
+    selected="selected"
+    [% END %]
+    >[% timezone | html %]</option>
+[% END %]
+</select>
+<br />
+<label for="post-title">
+post title:
+(You can use <a href="http://blog.loudtwitter.com/2009/09/advanced-title-formats.html">formats</a> in your title)
+</label>
+[% input_text( 'post_title', "post-title" ) %]
+
+<div style="float: right; background-color: #eee">
+<h4>Preview</h4>
+
+<div id="sample-p" style="display: none">
+<p class="lt">
+<em class="time">16:32</em>
+at Farley's coffee shop, enjoying best Chai ever #lt
+<a class="status-link" href="http://twitter.com/statuses/you/444">#</a>
+</p>
+<p class="reply">
+<em class="time">17:01</em>
+@pete this is good news :) Congrats!
+<a class="status-link" href="http://twitter.com/statuses/you/444">#</a>
+</p>
+<p>
+<em class="time">00:22</em>
+Going to sleep
+<a class="status-link" href="http://twitter.com/statuses/you/444">#</a>
+</p>
+</div>
+
+<div id="sample-li" style="display: none">
+<ul>
+<li class="lt">
+<em class="time">16:32</em>
+at Farley's coffee shop, enjoying best Chai ever #lt
+<a class="status-link" href="http://twitter.com/statuses/you/444">#</a>
+</li>
+<li class="reply">
+<em class="time">17:01</em>
+@pete this is good news :) Congrats!
+<a class="status-link" href="http://twitter.com/statuses/you/444">#</a>
+</li>
+<li>
+<em class="time">00:22</em>
+Going to sleep
+<a class="status-link" href="http://twitter.com/statuses/you/444">#</a>
+</li>
+</ul>
+</div>
+
+</div>
+
+<label for="formatter_type">Style of post</label>
+<select id="formatter_type" name="formatter_type">
+[% help = {
+    para => "Paragraph (looks more redacted)",
+    list => "Bullet list",
+} %]
+[% FOR type IN [ 'list' 'para' ] %]
+    <option value="[% type | html %]"
+    [% IF form.field('formatter_type').value == type %]
+    selected="selected"
+    [% END %]
+    >[% help.$type | html %]</option>
+[% END %]
+</select>
+[% input_checkbox( 'Hide replies (ie: tweets with @someone)', 'format_hide_replies' ) %]
+[% input_checkbox( 'Hide time of posting', 'format_hide_time' ) %]
+[% input_checkbox( 'Hide status link', 'format_hide_status_link' ) %]
+[% input_checkbox( 'Only #lifetweet...', 'format_only_lifetweets' ) %]
+
+<p><em>If "Only #lifetweet" option is enabled then only tweets in #lifetweet, #lt, #loudtweet, ... channels
+are published (So in the example only 16:32's tweet).
+All tweets in #noise are automatically filtered.
+</em><p>
+<label for="post-prefix">text to add at the beginning of the post:</label>
+<textarea name="post_prefix" id="post-prefix" rows="16" cols="60">
+[% form.post_prefix.html %]
+</textarea>
+
+<label for="post-suffix">text to add at the end of the post:</label>
+<textarea name="post_suffix" id="post-suffix" rows="16" cols="60">
+[% form.post_suffix.html %]
+</textarea>
+
+[% END %]

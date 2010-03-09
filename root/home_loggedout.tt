@@ -1,0 +1,22 @@
+[% WRAPPER layouts/full.tt title="delivering tweets by the dozen" %]
+<h1><span style="font-size:155%">[% |loc %]What's your blog address?[% END %]</span></h1>
+[% IF c.request.param('deleted') %]
+<p>Your account has been deleted, we'll miss you! Take care</p>
+[% END %]
+[% IF c.request.param('auth_req') %]
+<p><strong>Please, sign-in and try again</strong></p>
+[% END %]
+<form action="/blogdispatch" method="post" class="blogdispatch">
+<input id="blog-uri" type="text" name="blog_uri" value="http://you.something.com/" class="openid2" />
+<input type="submit" value="[% |loc %]Yes, this is my blog[% END %]"/>
+</form>
+
+<p><i>[% |loc %]If you don't have one, start a trial on <a href="http://www.kqzyfj.com/click-3336868-10399774">TypePad</a>[% END %]</i></p>
+<img src="http://www.ftjcfx.com/image-3336868-10399774" width="1" height="1" border="0"/>
+
+<h3>Make noise with your tweets</h3>
+<p>Learn about LoudTwitter: <a href="http://blog.loudtwitter.com/2007/07/what-is-loudtwi.html">what is LoudTwitter?</a></p>
+[%#
+<p style="color:red">power outage in San Francisco. Your blog might also be offline because of the outage, Six Apart is working around the clock to bring it back online:  <a href="http://status.sixapart.com">status</a>. You cannot use Six Apart services as openid providers for now. Email still works though.</p>
+%]
+[% END %]

@@ -1,0 +1,6 @@
+<form action="[% c.uri_for('/signin') %]" method="post" class="email">
+<label for="login-email">Email:</label><input id="login-email" type="text" name="email" ><br />
+<label for="login-password">Password:</label><input id="login-password" type="password" name="password" /><br />
+<input type="submit" value="[% |loc %]sign-in[% END %]" />
+</form>
+<em><a href="/password">Forgotten password?</a></em>

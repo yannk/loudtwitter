@@ -1,0 +1,16 @@
+[% WRAPPER layouts/full.tt title="edit user details" js="theonly.js" %]
+<h1>[% | loc %]Hello Dear Twitter user![% END %]</h1>
+
+[% INCLUDE form/prefs.tt %]
+[% IF form.validated %]Ok, Updated![% END %]
+
+[%# XXX
+<script type="text/javascript">
+//<![CDATA[
+presetTimeZoneFromBrowser();
+//]]>
+</script> 
+ this really should go in an onload() event %] 
+
+[% END %]
+

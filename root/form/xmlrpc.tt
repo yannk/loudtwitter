@@ -1,0 +1,13 @@
+[% PROCESS form/macros.tt %]
+[% WRAPPER form/wrapper.tt debug=1 %]
+
+<label for="endpoint-url">XMLRPC endpoint url</a> </label>
+[% input_text( 'endpoint_xmlrpc', 'endpoint-url', 60 ) %]
+
+<label for="endpoint-user">Username</label>
+[% input_text( 'endpoint_user', 'endpoint-user' ) %]
+
+<label for="endpoint-pass">Password</label>
+[% input_password( 'endpoint_pass', 'endpoint-pass') %]
+<br />
+[% END %]

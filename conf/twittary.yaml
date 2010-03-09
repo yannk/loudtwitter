@@ -1,0 +1,62 @@
+---
+GearmanServers: [ 127.0.0.1:7003, 127.0.0.1:4730 ]
+log4perl: |
+    log4perl.logger=DEBUG, localfile
+    log4perl.appender.Screen=Log::Log4perl::Appender::Screen
+    log4perl.appender.Screen.stderr=1
+    log4perl.appender.Screen.layout=Log::Log4perl::Layout::PatternLayout
+    log4perl.appender.Screen.layout.ConversionPattern=[%d] [%p] %m%n
+
+    log4perl.appender.localfile = org.apache.log4j.RollingFileAppender
+    log4perl.appender.localfile.layout=Log::Log4perl::Layout::PatternLayout
+    log4perl.appender.localfile.layout.ConversionPattern=[%d] [%p] %5P %m%n
+    log4perl.appender.localfile.filename = sub { Twittary::Core->logfile }
+    log4perl.appender.localfile.size = 20000000
+    log4perl.appender.localfile.max = 10
+    log4perl.appender.localfile.check_every_n = 1000
+    log4perl.appender.localfile.recreate = 1
+    log4perl.appender.localfile.recreate_check_interval = 30
+    log4perl.appender.localfile.utf8 = 1
+
+    ## not too verbose for the importer
+    # no worky
+    #log4perl.appender.localfile.Threshold = INFO
+logdir: /srv/logs/
+SMTP:
+    host: 127.0.0.1:25
+
+catalyst:
+    ## the application name is now loudtwitter, not sure
+    ## what's the scope of the following "name"
+    name: Twittary
+    authentication:
+      openid:
+        use_session: 1
+        user_class: Twittary::Model::User::Catalyst
+        store: Catalyst::Plugin::Authentication::Store::Twittary::Backend
+    session:
+      cookie_expires: 94608000  # 3 years
+      expires: 94608000
+    form:
+      no_fillin: 0 
+      pre_load_forms: 1 # Try and load forms at setup time
+      form_name_space: 'Twittary::Form'
+      debug: 1   # Show forms pre-loaded.
+    log4perl: |
+            log4perl.logger=DEBUG, localfile, Screen
+
+            log4perl.appender.Screen=Log::Log4perl::Appender::Screen
+            log4perl.appender.Screen.stderr=1
+            log4perl.appender.Screen.layout=Log::Log4perl::Layout::PatternLayout
+            log4perl.appender.Screen.layout.ConversionPattern=[%d] [%p] %m%n
+
+            log4perl.appender.localfile = org.apache.log4j.RollingFileAppender
+            log4perl.appender.localfile.layout=Log::Log4perl::Layout::PatternLayout
+            log4perl.appender.localfile.layout.ConversionPattern=[%d] [catalyst] [%p] %m%n
+            log4perl.appender.localfile.filename = sub { Twittary::Core->logfile('loudtwitter') }
+            log4perl.appender.localfile.size = 20000000
+            log4perl.appender.localfile.max = 10
+            log4perl.appender.localfile.check_every_n = 1000
+            log4perl.appender.localfile.recreate = 1
+            log4perl.appender.localfile.recreate_check_interval = 30
+            log4perl.appender.localfile.utf8 = 1

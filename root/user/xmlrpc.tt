@@ -1,0 +1,7 @@
+[% WRAPPER layouts/full.tt title="XML-RPC settings" %]
+<h1>[% | loc %]XML-RPC configuration[% END %]</h1>
+
+[% INCLUDE form/xmlrpc.tt %]
+[% IF form.validated %]Ok, Updated![% END %]
+
+[% END %]

@@ -1,0 +1,35 @@
+[% WRAPPER layouts/full.tt title="Let's have a look to your blog..." %]
+<h1>[% |loc %]What about posting some tweets to your blog?[% END %]</h1>
+<p>
+[% SET nice_uri = blog_uri %]
+[%
+   SET nice_uri = nice_uri.remove('^http://'); 
+   SET nice_uri = nice_uri.remove('/+$');
+%]
+
+<strong>[% nice_uri | html %]</strong>? <br />
+...This is my favorite blog!
+</p>
+<p>
+I can collect every tweet you are interested in, and sum them up in a post sent daily
+to your blog.
+</p>
+<p>
+[% IF meta.openid_server %]
+Your blog appears to support open-id which is cool!
+You can <a href="[% c.uri_for('/signin-openid', {claimed_uri => blog_uri }) %]">
+login using openid now</a>
+, which will save you the hassle to
+create a password (yet another one) on LoudTwitter.
+[% ELSE %]
+After a quick analysis it appears that your blog doesn't support open-id (bouh) <br />
+But that's not a big deal, we'll go thru a quick process of password creation.
+[% END %]
+[% IF c.debug %]
+<pre>
+[% USE Dumper; Dumper.dump( meta ) %]
+</pre>
+[% END %]
+<a href="[% c.uri_for('/signup', { blog_uri => blog_uri }) %]">signup!</a>
+</p>
+[% END %]

@@ -1,0 +1,27 @@
+[% WRAPPER layouts/full.tt title="Old fashion login and password screen" %]
+<h1>[% | loc %]Creation of a login password[% END %]</h1>
+<p>
+[% IF c.user_exists %]
+    [% IF c.user.openid_uri %]
+        [% IF c.request.params.openid_claim_is_true %]
+<p>Authentication successful! This step is optional since you're <strong>now</strong> logged in using OpenID.</p>
+        [% ELSE %]
+<p>This step is optional since you're logged in using openid.</p>
+        [% END %]
+<p>Still, it is <strong>strongly</strong> advised that you setup an email and password here.
+First it will allow you to login in case you loose your OpenID account (login using email or
+OpenID will both be possible).
+<br />
+<br /><strong>
+    <a href="[% c.uri_for('save') %]">&raquo; Skip this step</a>
+    </strong>
+</p>
+    [% END %]
+[% ELSE %]
+<p>If you prefer you can also login with open-id, which makes the following
+information optional only. <a href="[% c.uri_for('/signin',  { origin => c.request.path }) %]">click-here</a></p>
+[% END %]
+
+[% INCLUDE form/email_auth.tt %]
+
+[% END %]

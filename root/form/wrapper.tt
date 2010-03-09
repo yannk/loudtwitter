@@ -1,0 +1,15 @@
+<form method="post">
+
+[% content %]
+
+<br />
+<input type="submit" value="ok"/>
+</form>
+
+<br />
+[% IF 0 && debug %]
+<pre>
+[% USE Dumper; Dumper.dump(form.error_fields) %]
+</pre>
+[% END %] 
+

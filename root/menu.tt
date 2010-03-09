@@ -1,0 +1,13 @@
+[% IF c.request.path.match('signup'); menu = "signup"; END %]
+[% DEFAULT menu = "home" %]
+<div id="menu">
+  <ul>
+    <li[% IF menu=="home" %] class="current"[% END %]><a href="/">home</a></li>
+[% UNLESS c.user_exists %]
+    <li[% IF menu=="signup" %] class="current"[% END %]><a href="/signup">sign up</a></li>
+[% END %]
+    <li[% IF menu=="blog-compat" %] class="current"[% END %]><a href="/blog-compat">blog compatibility</a></li>
+    <li[% IF menu=="support" %] class="current"[% END %]><a href="/support">support</a></li>
+    <li[% IF menu=="about" %] class="current"[% END %]><a href="/about">about</a></li>
+  </ul>
+</div>

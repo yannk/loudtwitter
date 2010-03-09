@@ -1,0 +1,3 @@
+- be sure that postfix can write the log (or use .forward in ~)
+- be sure that postfix can find and excute the inbox.pl
+- be sure that the config is accessible to application users

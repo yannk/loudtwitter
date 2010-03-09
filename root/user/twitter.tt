@@ -1,0 +1,8 @@
+[% WRAPPER layouts/full.tt title="Twitter to follow" %]
+<h1>[% | loc %]Whose tweets to receive?[% END %]</h1>
+
+[% INCLUDE form/twitter.tt %]
+[% IF form.validated %]Ok, Updated![% END %]
+
+[% END %]
+

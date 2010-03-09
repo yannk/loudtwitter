@@ -1,0 +1,4 @@
+[% WRAPPER layouts/full.tt title="twitter details" %]
+<pre>[% USE Dumper; Dumper.dump(c.user) %]</pre>
+
+[% END %]

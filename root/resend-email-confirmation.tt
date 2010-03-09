@@ -1,0 +1,9 @@
+[% WRAPPER layouts/full.tt title="Resend confirmation email..." %]
+
+<form method="POST">
+<label for="email" />Email</label><br />
+<input type="text" name="email" id="email" />
+<input type="submit" value="resend" />
+</form>
+
+[% END %]

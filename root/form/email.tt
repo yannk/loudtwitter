@@ -1,0 +1,10 @@
+[% PROCESS form/macros.tt %]
+
+[% WRAPPER form/wrapper.tt debug=1 %]
+
+<label >Email:</label> 
+[% input_text( 'endpoint_email' ) %]
+
+<p>In case you need it, please note that LoudTwitter will send email from address: noreply@loudtwitter.com</p>
+
+[% END %]

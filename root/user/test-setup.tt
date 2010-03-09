@@ -1,0 +1,26 @@
+[% WRAPPER layouts/full.tt title="Test setup" %]
+<h1>[% | loc %]Verification that LoudTwitter can post[% END %]</h1>
+
+<p>
+<strong>Please follow <a href="http://www.twitter.com/loudtweeter">loudtweeter</a> on twitter to be
+notified about maintenance, news and issues with your account.</strong>
+</p>
+[% IF done %]
+    <p>
+    [% IF post_error %]
+        There was an error posting your tweets. Here is some (technical) details:
+        <pre>[% post_error | html %]</pre>
+    [% ELSE %]
+    Alright, your tweets have been shipped, please verify that everything is ok.
+    [% END %]
+    </p>
+[% END %]
+<p>
+Click on the following TEST button and tweets will be shipped to you. If not,
+you'll have to verify your setup.
+<form action="/user/test-setup" method="POST">
+<input type="submit" value="TEST" />
+</form>
+</p>
+
+[% END %]

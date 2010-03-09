@@ -1,0 +1,7 @@
+[% PROCESS form/macros.tt %]
+
+[% WRAPPER form/wrapper.tt debug=1 %]
+<label for="twitter-name">Twitter name:</label> 
+[% input_text( 'twitter_name', 'twitter-name' ) %]
+<i>'loudtweeter' for instance</i>
+[% END %]

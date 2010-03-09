@@ -1,0 +1,8 @@
+[% WRAPPER layouts/full.tt title="Email sent" %]
+
+<p>
+We will be sending an email to [% email | html %] shortly, please watch
+for your spam folder too.
+</p>
+
+[% END %]

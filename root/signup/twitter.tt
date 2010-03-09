@@ -1,0 +1,8 @@
+[% WRAPPER layouts/full.tt title="edit user details" %]
+
+<p>Please enter the twitter name that you want to use as the source of the tweets.</p>
+<p> <i>It has to be public for now</i> </p>
+[% INCLUDE form/twitter.tt %]
+
+[% END %]
+

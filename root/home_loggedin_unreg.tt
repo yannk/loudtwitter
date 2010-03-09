@@ -1,0 +1,18 @@
+[% WRAPPER layouts/full.tt title="Registration almost complete" %]
+<h1>[% |loc %]What about posting some tweets to your blog?[% END %]</h1>
+<p>
+[% |loc %]
+<p style="color: red">A Loudtwitter account for [% c.user.openid_uri | html %] doesn't exist yet.</p>
+<p>
+I can post some tweets to your blog If you give me a few additional informations...
+[% END %]
+</p>
+
+<p>
+If you want to post to [% c.user.openid_uri | html %], then <a href="/signup/use-openid-uri">just continue here</a>.
+</p>
+<p>
+Otherwise if [% c.user.openid_uri | html %] isn't the blog you want to post to, then
+<a href="/signup/what-s-your-blog">Click here</a>
+</p>
+[% END %]

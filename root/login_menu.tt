@@ -1,0 +1,10 @@
+<div id="login-menu">
+  <ul>
+[% IF c.user_exists %]
+    [% IF c.user.login_name %]<li><span>[% c.user.login_name.html %]</span></li>[% END %]
+    <li><span><a href="/signout">sign out</a></span></li>
+[% ELSE %]
+    <li><span><a href="/signin">sign in</a></span></li>
+[% END %]
+  </ul>
+</div>

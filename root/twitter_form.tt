@@ -1,0 +1,21 @@
+[% WRAPPER layouts/full.tt title="twitter details" %]
+<h1>[% | loc %]Hello Dear Twitter user![% END %]</h1>
+<p>
+This is foo bar
+</p>
+<form action="[% c.uri_for('twitter_details') %]" method="post">
+Post hour : <input type="text" name="post_hour" value="12" />
+<br />
+Twitter name : <input type="text" name="twitter_name" value="" />
+<br />
+<br />
+Suffix to add at the end of my daily summary:
+<br />
+<textarea name="post_suffix" rows="16" cols="80">
+this is posted thanks to twitterlazy
+</textarea>
+<br />
+<input type="submit" />
+</form>
+
+[% END %]

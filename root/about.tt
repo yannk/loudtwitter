@@ -1,0 +1,67 @@
+[% WRAPPER layouts/full.tt title="About LoudTwitter" menu="about" %]
+<h1>[% |loc %]About LoudTwitter[% END %]</h1>
+<h2>Follow LT on twitter</h2>
+<p>
+I tweet about site status, and news, sometimes tips. Traffic pretty low (couple per months). I also sometimes do direct help by mean of @replies. I'm <a href="http://twitter.com/loudtweeter">loudtweeter</a>.
+</p>
+<h2>Author</h2>
+<p>Yann, I'm doing Loudtwitter on my free time.
+<ul>
+<li><a href="http://blog.cyberion.net/">blog</a></li>
+<li><a href="http://twitter.com/yann">twitter</a></li>
+</ul>
+</p>
+<h2>Status</h2>
+<img src="/static/images/underconstruction.gif" alt="under construction" width="83" height="72" style="float: right; border: 0" />
+<br style="clear: both" />
+<img src="/static/images/beta.gif" alt="beta" width="83" height="72" style="float: right; border: 0" />
+<p>
+Be aware that LoudTwitter is developed on the spare time of his author, and is not supported by any corporation. That explains why some features are missing or incomplete. If you want to report something, please, be kind :). 
+</p>
+<p>
+LoudTwitter is not related to twitter, which is an independant service. Loudtwitter loves Twitter!
+</p>
+<h2>Credits</h2>
+<p>
+[% |loc %]
+This site is born from a need that <a href="http://loiclemeur.com">Loic Le Meur</a> first expressed. He wanted his tweets on his <a href="http://typepad.com">TypePad</a> blog.
+[% END %]
+<p>
+So, he asked me, If I could develop a tool for him. Eventually, I turned the tool into a site as more people were interested by this kind of service.
+</p>
+</p>
+
+<h2>Site's design</h2>
+<p>
+[% |loc %]
+The nice parts in the design of LoudTwitter come from <a href="http://www.styleshout.com/">styleshout</a>, I pretty much screwed up the rest myself...
+[% END %]
+</p>
+
+<h2>Donations</h2>
+<p>
+Support Loudtwitter by donating a free amount.
+It helps me paying the bill of hosting, domain names, and keep me happy and 
+motivated! Thanks.
+</br >
+
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" id="paypal">
+<input type="hidden" name="cmd" value="_xclick">
+<input type="hidden" name="business" value="yann.kerherve@gmail.com">
+<input type="hidden" name="item_name" value="loudtwitter">
+<input type="hidden" name="buyer_credit_promo_code" value="">
+<input type="hidden" name="buyer_credit_product_category" value="">
+<input type="hidden" name="buyer_credit_shipping_method" value="">
+<input type="hidden" name="buyer_credit_user_address_change" value="">
+<input type="hidden" name="no_shipping" value="1">
+<input type="hidden" name="return" value="http://www.loudtwitter.com/donate/thanks">
+<input type="hidden" name="cn" value="Thanks!">
+<input type="hidden" name="currency_code" value="USD">
+<input type="hidden" name="tax" value="0">
+<input type="hidden" name="lc" value="US">
+<input type="hidden" name="bn" value="PP-DonationsBF">
+<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+</form>
+<p>
+
+[% END %]

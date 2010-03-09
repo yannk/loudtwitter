@@ -1,0 +1,8 @@
+[% WRAPPER layouts/full.tt title="blblabl" %]
+<h1>[% | loc %]What's your blog address?[% END %]</h1>
+<form action="[% c.uri_for('blog_step1') %]" method="post">
+<input type="text" name="blog_uri" value="[% c.user.openid_uri || 'yann.something.com' %]" />
+<input type="submit" />
+</form>
+
+[% END %]

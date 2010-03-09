@@ -1,0 +1,5 @@
+<!--header -->
+<div id="header">
+    <h1 id="logo-text"><a href="/"><span class="white">Loud</span><span class="gray">Twitter</span></a></h1>
+    <h2 id="slogan">Shipping tweets to your blog, <strike>one tweet at a time</strike> daily</h2>
+</div>

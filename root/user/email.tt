@@ -1,0 +1,7 @@
+[% WRAPPER layouts/full.tt title="Post Email Address" %]
+<h1>[% | loc %]Email address to use as a recipient of the daily tweets[% END %]</h1>
+
+[% INCLUDE form/email.tt %]
+[% IF form.validated %]Ok, Updated![% END %]
+
+[% END %]

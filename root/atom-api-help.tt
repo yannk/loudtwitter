@@ -1,0 +1,26 @@
+[% WRAPPER layouts/full.tt title="Atom API explanation" %]
+<h1>Atom API (or Publishing Protocol) and not Atom feed</h1>
+<p>
+Atom is a <a href="http://en.wikipedia.org/wiki/Atom_%28standard%29">great standard</a>, but
+it stands for two things, a format and a protocol.
+</p>
+<p>
+Since LoudTwitter is publishing tweets to your blog, this is the Publishing Protocol
+part of the stardard that LoudTwitter is using. That's why LoudTwitter needs 
+the Atom endpoint URI, and not the address of your Atom Feed.
+</p>
+
+<p>
+Unfortunately there are fewer blog plateform providing a publishing endpoint than
+providing atom feed urls...
+</p>
+<p>
+<a href="http://sixapart.com">Six Apart</a> products usually provide everything.
+<ul>
+<li>For LiveJournal atom endpoint is: http://www.livejournal.com/interface/atom/post</li>
+<li>For TypePad atom endpoint is: http://www.typepad.com/t/atom/weblog/blog_id=<strong>your blog id</strong> (or typepad.jp)</li>
+<li><strike>Blogger: http://www.blogger.com/atom/<strong>your blog id</strong></strike> (blogger doesn't support that anymore. stay tune while LoudTwitter is looking for an alternate method, or try email posting)</li>
+<li>...</li>
+</ul>
+</p>
+[% END %]

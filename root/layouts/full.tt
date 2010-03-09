@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta name="Description" content="Post tweets (from twitter.com), to your blogs (Atom or Email)" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title>[% title | html %]</title>
+    <link rel="stylesheet" href="/static/screen.css" type="text/css" />
+    <link rel="stylesheet" href="/static/css/refresh.css" type="text/css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="shortcut icon" type="image/jpeg" href="/static/megaphone_icon.jpg" />
+  [% IF js %]
+      <script type="text/javascript" src="/static/js/[% js %]"></script>
+  [% END %]
+<script type="text/javascript">
+function clickclear(thisfield, defaulttext) {
+if (thisfield.value == defaulttext) {
+thisfield.value = "";
+}
+}
+
+function clickrecall(thisfield, defaulttext) {
+if (thisfield.value == "") {
+thisfield.value = defaulttext;
+}
+}
+</script>
+  </head>
+[%#<body onload="javascript:urchinTracker(document.referrer);">%]
+<body>
+
+<!-- wrap starts here -->
+<div id="wrap">
+[% INCLUDE header.tt %]
+[% INCLUDE menu.tt %]
+[% INCLUDE login_menu.tt %]
+
+    <div id="content-wrap">
+[% cols = "onecol" %]
+[% IF sidebar_enabled %]
+    [% cols = "twocols" %]
+[% INCLUDE sidebar.tt %]
+[% END %]
+      <div id="main-[% cols %]">
+[% content %]
+[% IF c.debug && c.user_exists %]
+        <pre>
+            user_id: [% c.user.user_id %]
+            user: [%# USE Dumper; Dumper.dump( c.user ) %]
+        </pre>
+[% END %]
+      </div>
+   </div>
+[% INCLUDE footer.tt %]
+</div>
+[% UNLESS c.debug %]
+<script type="text/javascript">
+document.write( '<scr'+'ipt type="text/javascript" src="http://www.google-analytics.com/urchin.js"><\/scr'+'ipt>' );
+</script>
+<script type="text/javascript">
+_uacct = "UA-2252486-1";
+urchinTracker();
+</script>
+
+<script type="text/javascript">
+document.write( '<scr'+'ipt type="text/javascript">' );
+if( document.referrer.toString().indexOf( 'www.loudtwitter.com' ) ==-1 ) {
+    document.write( 'urchinTracker(document.referrer);' ); 
+} 
+document.write( '<\/scr'+'ipt>' );
+</script>
+[%# Start Quantcast tag %] 
+<script type="text/javascript" src="http://edge.quantserve.com/quant.js"></script>
+<script type="text/javascript">_qacct="p-e7F6X75vFf4Yg";quantserve();</script>
+<noscript>
+<a href="http://www.quantcast.com/p-e7F6X75vFf4Yg" target="_blank"><img src="http://pixel.quantserve.com/pixel/p-e7F6X75vFf4Yg.gif" style="display: none;" border="0" height="1" width="1" alt="Quantcast"/></a>
+</noscript>
+[%# end Quantcast %]
+[% END %]
+</body>
+</html>

@@ -1,0 +1,9 @@
+#! /usr/bin/perl -w
+use strict;
+use warnings;
+
+my $uri = shift;
+use WWW::Blog::Metadata; 
+my $meta = WWW::Blog::Metadata->extract_from_uri($uri);
+use YAML; warn Dump $meta;
+

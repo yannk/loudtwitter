@@ -1,0 +1,11 @@
+[% WRAPPER layouts/full.tt title="You made me happy!" menu="donate" %]
+
+<p>
+This is really, really appreciated!
+
+<br />
+<br />
+LoudTwitter  ❤ You!
+</p>
+
+[% END %]

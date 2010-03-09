@@ -1,0 +1,7 @@
+[% WRAPPER layouts/full.tt title="Invalid error" %]
+<h1><span style="font-size:155%">[% |loc %]Ooops[% END %]</span></h1>
+<p>
+We're sorry, but the link you followed is either incorrect or invalid. 
+<br />Please, try again. Thanks.
+</p>
+[% END %]

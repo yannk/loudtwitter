@@ -1,0 +1,22 @@
+[% WRAPPER layouts/full.tt title="Sign In" menu = "signin" %]
+
+[% IF c.request.param('auth_failed') %]
+<p style="color:red" class="error">
+Sorry, the email and/or password supplied are incorrect.
+<i>(please send us an email if you have forgotten your password</i>)
+</p>
+[% END %]
+[% IF c.request.param('openid_claim_is_false') %]
+<p style="color:red" class="error">
+Sorry, this openid url doesn't seem to validate...
+</p>
+[% END %]
+
+<p>If you don't have an account yet, get one <a href="/signup">now</a> <br />
+Since we support OpenID, you don't even have to provide an email address</p>
+
+<p>Login using your OpenID account (<em>help: try your blog address in this field</em>)</p>
+[% INCLUDE login_box_openid.tt %] 
+<p>Or if you have provided an email address to us, login using your password: </p>
+[% INCLUDE login_box_email.tt %] 
+[% END %]

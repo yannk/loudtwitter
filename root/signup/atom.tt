@@ -1,0 +1,33 @@
+[% WRAPPER layouts/full.tt title="Atom Endpoint Setup" %]
+<h1>[% | loc %]Setup of Atom posting[% END %]</h1>
+[% IF c.session.register.blog_type == 'typepad' %]
+<p>
+Hurrah for TypePad!<br />
+There are many ways to post your tweets to your beloved blog...
+<ul>
+<li>You can fill the form with atom informations below</li>
+<li>You can also invite LoudTwitter as a guest on your blog: 
+<strong><a href="[% c.uri_for('wants-guest') %]">Yes, invite LoudTwitter
+as a guest instead</a></strong>.
+This is cool, because LoudTwitter will be considered as a separate author, it won't need your own credentials (requires a TypePad PRO account).
+</li>
+<li>Finally you can also use your TypePad secret moblog address. Set it up 
+<a href="[% c.uri_for('email') %]">here</a> in LoudTwitter (you might need to whitelist noreply@loudtwitter.com).
+</li>
+</ul>
+</p>
+[% ELSE %]
+<p>
+Please, specify below the atom settings that LoudTwitter will use
+to post on your blog. If you wish you can setup a
+<a href="[% c.uri_for('email') %]">post-by-email</a> instead, or if this is a
+TypePad account, <a href="[% c.uri_for('wants-guest') %]">invite LoudTwitter as a guest</a> on your blog.
+</p>
+[% END %]
+
+[% IF c.session.register.blog_type == 'typepad' && ! guess_tp_atom %]
+<em>A typepad atom url is of the form: http://www.typepad.com/t/atom/weblog/blog_id=000000 (or www.typepad.jp/t/atom/weblog/blog_id=00000)</em>
+[% END %]
+[% INCLUDE form/atom.tt %]
+
+[% END %]

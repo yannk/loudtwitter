@@ -1,0 +1,38 @@
+[% WRAPPER layouts/full.tt title="TypePad Guest Author setup" %]
+<h1>[% | loc %]Invite LoudTwitter as your guest[% END %]</h1>
+<h3>Huzzah for TypePad!</h3>
+
+<p>To allow Loudtwitter to post on your blog, follow these simple steps</p>
+<ul>
+<li>Log in to your <a href="http://www.typepad.com/t/app/">typepad account</a></li>
+<li>Click on the blog name you want to post to</li>
+<li>Click on the configure tab</li>
+<li>Click on the <a onclick="window.open(this.href);return false;" href="/static/typepad_guest_author.png">Authors sub-tab</a></li>
+<li>Fill the bottom-form, and add &quot;<strong>[% user.typepad_guest_email | html %]</strong>&quot; as a <em>Guest Author</em></li>
+<li>Done!</li>
+</ul>
+<a href="http://support.typepad.com/cgi-bin/typepad.cfg/php/enduser/std_adp.php?p_faqid=44&p_created=1125447239&p_sid=vjQMdfHi&p_lva=&p_sp=cF9zcmNoPTEmcF9zb3J0X2J5PSZwX2dyaWRzb3J0PSZwX3Jvd19jbnQ9NTMmcF9wcm9kcz0mcF9jYXRzPSZwX3B2PSZwX2N2PSZwX3BhZ2U9MSZwX3NlYXJjaF90ZXh0PUdVRVNUIEFVVGhvcnM*&p_li=&p_topview=1">There's also a TypePad knowledge base article</a> to guide your thru this steps.
+</p>
+
+[% SET invite_uri = c.uri_for('check-typepad-guest', { not_invited => c.request.param('not_invited') + 1}) %]
+[% IF c.request.param('not_invited') %]
+<p style="color: red">
+Sorry, It doesn't look like the invitation made it thru... <a href="[% invite_uri %]">Try again</a> in a sec?
+[% IF c.request.param('not_invited') > 2 %]
+Could you check that you pasted the email address correctly?
+<br />
+[% END %]
+</p>
+<p>
+If It doesn't appear after a while and TypePad says that the user is invited,
+please feel free to use the feedback link to rant...
+</p>
+[% END %]
+
+<p>
+Please click <a href="[% invite_uri %]">here</a> when you've been thru the invitation process.
+</p>
+<p>
+Or cancel, here.
+</p>
+[% END %]

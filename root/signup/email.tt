@@ -1,0 +1,31 @@
+[% WRAPPER layouts/full.tt title="Post using email address" %]
+<h1>[% | loc %]Post by email setup[% END %]</h1>
+[% IF c.session.register.blog_type == 'vox' %]
+<p>
+Vox has a wonderful feature that you may not know: You can post using 
+as many secret email addresses you want (you have one by default). And
+LoudTwitter can use one of these to post to your vox using a specific
+set of tags and special visibility rules (for instance: only
+your friends will see your tweets on your vox).
+</p>
+<p>
+Please fill the field below with one moblog adress email. The format is: 
+<i>crypticsecrettext</i>@moblog.vox.com
+</p>
+<p>
+Go to <a href="http://www.vox.com/account/mobile">http://www.vox.com/account/mobile</a>
+to figure out what is your moblog email, or to generate a new one, and paste it here.
+</p>
+[% ELSE %]
+<p>
+I will daily send your tweets to the email address below. Many blog services provide
+such email address to easily post from a mobile device.
+</p>
+<p>
+Otherwise you can also specify some <a href="[% c.uri_for('atom') %]">atom endpoint</a>
+</p>
+[% END %]
+
+[% INCLUDE form/email.tt %]
+
+[% END %]

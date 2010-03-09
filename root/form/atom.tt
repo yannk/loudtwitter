@@ -1,0 +1,14 @@
+[% PROCESS form/macros.tt %]
+[% WRAPPER form/wrapper.tt debug=1 %]
+
+<label for="endpoint-url">Atom API endpoint url: <a onclick="window.open(this.href);return false;" href="/atom-api-help">(what is this?)</a> </label>
+
+[% input_text( 'endpoint_atom', 'endpoint-url', 60 ) %]
+
+<label for="endpoint-user">Username</label>
+[% input_text( 'endpoint_user', 'endpoint-user' ) %]
+
+<label for="endpoint-pass">Password</label>
+[% input_password( 'endpoint_pass', 'endpoint-pass') %]
+<br />
+[% END %]

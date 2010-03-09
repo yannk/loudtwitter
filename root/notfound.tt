@@ -1,0 +1,6 @@
+[% WRAPPER layouts/full.tt title="Not Found" %]
+<h1><span style="font-size:155%">[% |loc %]Not Found[% END %]</span></h1>
+<p>
+We're sorry, the page you requested was not found on our server.
+</p>
+[% END %]

@@ -1,0 +1,155 @@
+[% WRAPPER layouts/full.tt title="Batch tweeting" %]
+<h1>[% |loc(c.user.name) %]Welcome Back [% c.user.name %]![% END %]</h1>
+[% IF c.request.param('email') %]
+<p>
+<strong>Congrats!</strong> your email has been verified, and your account is completely
+set up.
+</p>
+[% END %]
+[% IF c.request.param('suspend') %]
+<p>
+Ok, your daily tweets delivery just got suspended
+</p>
+[% END %]
+[% IF c.request.param('password_updated') %]
+<p>
+Ok, your password has successfuly be changed
+</p>
+[% END %]
+[% IF c.request.param('guest') %]
+<p>
+Guest account successfully setup
+</p>
+[% END %]
+[% IF c.request.param('registration') %]
+<p>You are all set! It was fast!</p>
+[% END %]
+
+[% IF c.user.openid_uri %]
+<p style="color: green">
+This account is associated with the following OpenID: <br />
+[% c.user.openid_uri | html %]
+</p>
+[% END %]
+
+[% IF c.user.post_failure_count %]
+<p style="color: red">
+Warning, LoudTwitter had issues shipping your last tweets. We'll retry again,
+but please verify your settings. (You can test your setup using the link below). 
+<br />
+<br />
+Last attempt was on: [% c.user.last_post_failure_date_user %]
+<br />
+</p>
+[% END %]
+
+[% IF c.user.email && ! c.user.email_verified %]
+<p style="color: red">
+Warning, your email [% c.user.endpoint_email | html %] hasn't been verified.<br />
+<a href="[% c.uri_for('/resend-email-confirmation') %]">[% |loc %]Resend Account Confirmation Email[% END %]</a>
+</p>
+[% END %]
+
+[% IF c.user.has_suspended %]
+<p>
+LoudTwitter won't post tweets to your blog until you it the unsuspend
+button below.
+</p>
+[% ELSE %]
+<p>
+[% |loc(relative_time) %]
+Your next tweets are scheduled to be shipped to your blog
+[% c.user.eta_before_next %].
+[% END %]
+</p>
+[% END %]
+<h2>Settings</h2>
+<ul>
+<li><strong>
+<a href="[% c.uri_for('/user/test-setup') %]">
+    [% |loc %]Try it out, now[% END %]
+</a>
+</strong>
+</li>
+<li>
+<a href="[% c.uri_for('/user/prefs') %]">
+    [% |loc %]Change post time, formatting, etc[% END %]
+</a>
+</li>
+<li>
+<a href="[% c.uri_for('/user/twitter') %]">
+    [% |loc %]Change the twitter followed[% END %]
+</a>
+currently: [% c.user.twitter_name | html %]
+</li>
+<li>
+<a href="[% c.uri_for('/user/email') %]">
+    [% |loc %]Email posting setup[% END %]
+</a>
+</li>
+<li>
+<a href="[% c.uri_for('/user/atom') %]">
+    [% |loc %]ATOM API posting configuration[% END %]
+</a>
+</li>
+<li>
+<a href="[% c.uri_for('/user/xmlrpc') %]">
+    [% |loc %]XMLRPC posting configuration[% END %]
+</a>
+</li>
+<li>
+<a href="[% c.uri_for('/user/do-typepad-guest') %]">
+    [% |loc %]Invite LoudTwitter as TypePad Guest Author[% END %]
+</a>
+</li>
+</ul>
+<h2>Shipment preference</h2>
+<p>
+[% SET current = c.user.shipment_method %]
+[% SWITCH current %]
+    [% CASE 'email' %]
+Your tweets are currently shipped by email
+    [% CASE 'guest' %]
+Your tweets are currently shipped using a TypePad Guest account
+    [% CASE 'xmlrpc' %]
+Your tweets are currently shipped using the old fashioned XML-RPC
+    [% CASE 'atom' %]
+Your tweets are currently shipped using Atom
+    [% CASE %]
+[% END %]
+</p>
+[% SET meth = 0;
+   SET meth = meth + 1 IF c.user.endpoint_email;
+   SET meth = meth + 1 IF c.user.endpoint_user;
+   SET meth = meth + 1 IF c.user.post_using_guest; %]
+
+[% IF meth > 1 %] 
+<p>You have more that one shipment method configured, please select the one used
+for shipping daily </p>
+<form action="[% c.uri_for('/user/preferred-posting') %]" method="post">
+[% SET ppm = c.user.shipment_method %]
+<select name="preferred_posting_method">
+    [% FOR option = ['email' 'guest' 'atom' 'xmlrpc'] %]
+<option value="[% option %]"[% IF ppm==option %] selected="selected"[% END %]>[% option %]</option>
+    [% END %]
+</select>
+<input type="submit" value="set" />
+</form>
+<p><i>Please note that this preference will be discarded if the associated settings are missing</i></p>
+[% END %]
+
+<h2>Gimme a break...</h2>
+<p>
+[% IF c.user.has_suspended %]
+<form action="/user/unsuspend" method="post">
+<input type="submit" value="reenable posting (unsuspend)" />
+</form>
+[% ELSE %]
+<form action="/user/suspend" method="post">
+<input type="submit" value="Suspend your posting until further notice" />
+</form>
+[% END %]
+Or, <a href="/user/delete">delete my account</a>.
+</p>
+
+[% END %]

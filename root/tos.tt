@@ -1,0 +1,14 @@
+[% WRAPPER layouts/full.tt title="Legally speaking" %]
+<h1>Terms of Service</h1>
+<p>
+<ul>
+<li>LoudTwitter is a service meant to help people gather all their blogging activities in one place.</li>
+<li>LoudTwitter is not affiliated with Twitter (but we love them!)</li>
+<li>It's Loudtwitter commitment to provide the best possible service on the free time of its author, however it comes with no guarantee of any kind</li>
+<li>LoudTwitter tries hard to minimize the security risks of storing users password: You should be able to login with OpenID (no password) and to post using email (no password). If instead you choose to use passwords, it's your responsability, not LoudTwitter's</li>
+<li>However LoudTwitter guarantees that no evil usage of your personnal data (email, password) will be made knowingly. LoudTwitter has no intention to share your data with any third-party.
+</li>
+<li>For delivery control and internal statistics, LoudTwitter may insert trackers in batches delivered to you.</li>
+</ul>
+</p>
+[% END %]

@@ -1,0 +1,6 @@
+[% WRAPPER layouts/full.tt title="edit user details" js="theonly.js" %]
+
+[% INCLUDE form/prefs.tt %]
+
+[% END %]
+

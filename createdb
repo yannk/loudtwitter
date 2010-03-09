@@ -1,0 +1,3 @@
+create database twitter;
+grant all privileges on twitter.* to 'www'@localhost identified by password '';
+flush privileges;

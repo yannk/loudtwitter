@@ -1,0 +1,5 @@
+<form action="[% c.uri_for('/signin-openid') %]" method="post" class="openid">
+<input type="hidden" name="origin" value="[% c.request.param('origin').html || '/' %]" />
+<input type="text" name="claimed_uri" class="openid" value="http://your.blog.com/" onclick="clickclear(this, 'http://your.blog.com/')" onblur="clickrecall(this, 'http://your.blog.com/')" />
+<input type="submit" value="[% |loc %]OpenID signin-in[% END %]" />
+</form>

@@ -1,0 +1,10 @@
+[% WRAPPER layouts/full.tt title="Account deletion confirmation" %]
+<h1>[% | loc %]Account deletion[% END %]</h1>
+<p>Of, course if you want to leave, what could we say? We're sad, please be aware
+that you can suspend any posting if you prefer (bottom of the <a href="/">main page</a>).
+</p>
+
+<form method="post"> 
+<input type="submit" value="Yes, please delete all my data, there is no backup" />
+</form>
+[% END %]

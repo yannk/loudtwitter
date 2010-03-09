@@ -1,0 +1,33 @@
+[% WRAPPER layouts/full.tt title="Email Confirmation" %]
+<h1>[% | loc %]Your confirmation email is on its way[% END %]</h1>
+<p>
+[% |loc %]
+You should get your mail anytime soon...
+[% END %]
+</p>
+
+<p>
+<strong>While you wait, please follow <a
+href="http://www.twitter.com/loudtweeter">loudtweeter</a> on twitter to be
+notified about maintenance, news and issues with your account.</strong>
+</p>
+<p>
+[% |loc %]
+When the mail arrives, just click on the link, or enter the confirmation code below,
+and hit the "verify" button.
+[% END %]
+<br />
+<a href="/resend-email-confirmation">Resend Email Confirmation</a>
+</p>
+
+[% IF c.request.param('error') %]
+<p class="error" style="color:red">
+Sorry, the code your provided is incorrect
+</p>
+[% END %]
+<form action="/email-verify" method="GET">
+<input style="width:85%" type="text" name="code">
+<input type="submit" value="verify" />
+</form>
+
+[% END %]

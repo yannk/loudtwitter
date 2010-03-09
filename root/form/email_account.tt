@@ -1,0 +1,8 @@
+[% PROCESS form/macros.tt %]
+
+[% WRAPPER form/wrapper.tt debug=1 %]
+
+<label>What Email did you use during Registration?</label> 
+[% input_text( 'email' ) %]
+
+[% END %]

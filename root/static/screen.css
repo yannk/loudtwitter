@@ -1,0 +1,45 @@
+body {
+    font-family: "Helvetica", "trebuchet ms";
+}
+
+input.openid {
+   background: url(/static/openid.gif) no-repeat;
+   background-color: #fff;
+   background-position: 0 50%;
+   color: #000;
+   padding-left: 18px;
+}
+
+input.error {
+    border-color: red;
+}
+
+select.error {
+    color: red;
+}
+select {
+    margin: 0 5px
+}
+
+.menu {
+    width: 100%;
+}
+.menu .signin {
+    float: right;
+}
+
+.content {
+    padding-top: 80px;
+}
+
+#blog-uri {
+    width: 70%;
+}
+
+form.blogdispatch {
+	margin: 40px  10px;
+    padding: 0 5px;
+	border: 0;
+    background-color: transparent;
+    font-size: 140%;
+}
