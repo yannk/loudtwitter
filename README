@@ -6,8 +6,8 @@ time you choose on your blog (or to any email address).
 STATE OF THIS CODE:
 -------------------
 
-* Note that 'master' was never pushed fully in prod, it has more features than
-  'production' (dynamic titles, twitter name change resilience...)
+* Note that 'master' has never been fully pushed to prod, it has more features than
+  the current production code. (dynamic titles, twitter name change resilience...)
 
 * Scheduling and Delivery relies on Gearman where it should rather rely
   on TheSchwartz (with builtin retries) - and could use a mechanism scheme in general.
@@ -15,7 +15,7 @@ STATE OF THIS CODE:
 * The project started as a hack in 2007 and grew wildely when time permitted
   (there was no company to support it or anything)
 
-* At the present time this code is largely unmaintened
+* At the present time this code is largely unmaintained
 
 WARRANTY:
 ---------
